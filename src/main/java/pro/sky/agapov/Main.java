@@ -12,25 +12,25 @@ public class Main {
             arrList.add(random.nextInt(-100_000, 100_000));
         }
 
-//        ArrListImpl arrListCopy1 = new ArrListImpl(arrList.toArray());
-//        ArrListImpl arrListCopy2 = new ArrListImpl(arrList.toArray());
-//        ArrListImpl arrListCopy3 = new ArrListImpl(arrList.toArray());
-//
-//        long start = System.currentTimeMillis();
-//        arrListCopy1.sortBubble();
-//        System.out.print("Bubble time = ");
-//        System.out.println(System.currentTimeMillis() - start);
-//
-//        long start2 = System.currentTimeMillis();
-//        arrListCopy2.sortMaximum();
-//        System.out.print("Maximum time = ");
-//        System.out.println(System.currentTimeMillis() - start2);
-//
-//        long start3 = System.currentTimeMillis();
-//        Integer[] sortedArray = ArrListImpl.qSort(arrListCopy3.toArray(), 0, arrListCopy3.size()-1);
-//        System.out.print("QSort time = ");
-//        System.out.println(System.currentTimeMillis() - start3);
-//        System.out.println(Arrays.toString(sortedArray));
+        ArrListImpl arrListCopy1 = new ArrListImpl(arrList.toArray());
+        ArrListImpl arrListCopy2 = new ArrListImpl(arrList.toArray());
+        ArrListImpl arrListCopy3 = new ArrListImpl(arrList.toArray());
+
+        long start = System.currentTimeMillis();
+        arrListCopy1.sortBubble();
+        System.out.print("Bubble time = ");
+        System.out.println(System.currentTimeMillis() - start);
+
+        long start2 = System.currentTimeMillis();
+        arrListCopy2.sortMaximum();
+        System.out.print("Maximum time = ");
+        System.out.println(System.currentTimeMillis() - start2);
+
+        long start3 = System.currentTimeMillis();
+        Integer[] sortedArray = ArrListImpl.qSort(arrListCopy3.toArray(), 0, arrListCopy3.size()-1);
+        System.out.print("QSort time = ");
+        System.out.println(System.currentTimeMillis() - start3);
+        System.out.println(Arrays.toString(sortedArray));
 
         System.out.println("Обычный:");
         if (arrList.contains(0)) {
