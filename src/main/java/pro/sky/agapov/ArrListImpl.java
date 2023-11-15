@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class ArrListImpl implements ArrList {
-    public static final double GROWING_COEFFICIENT = 2.0;
+    public static final double GROWING_COEFFICIENT = 1.5;
     private final int DEFAULT_CAPACITY = 10;
     private int capacity = DEFAULT_CAPACITY;
     private int size;
@@ -40,8 +40,7 @@ public class ArrListImpl implements ArrList {
         if (item != null) {
             if (index >= 0 && index <= size) {
                 if (size == capacity) {
-                    capacity = (int) (capacity * GROWING_COEFFICIENT) + 1;
-                    elements = Arrays.copyOf(elements, capacity);
+                    grow();
                 }
                 for (int i = index; i < size; i++) {
                     elements[i + 1] = elements[i];
@@ -55,6 +54,11 @@ public class ArrListImpl implements ArrList {
         } else {
             throw new NullPointerException("Method \"add\" required not NULL parameter.");
         }
+    }
+
+    private void grow() {
+        capacity = (int) (capacity * GROWING_COEFFICIENT) + 1;
+        elements = Arrays.copyOf(elements, capacity);
     }
 
     /**
@@ -197,57 +201,6 @@ public class ArrListImpl implements ArrList {
 
     public int getCapacity() {
         return capacity;
-    }
-
-    public void sortBubble() {
-        for (int i = 1; i < size; i++) {
-            boolean anyShuffle = false;
-            for (int j = 0; j < size - i; j++) {
-                if (elements[j] > elements[j + 1]) {
-                    Integer tmp = elements[j];
-                    elements[j] = elements[j + 1];
-                    elements[j + 1] = tmp;
-                    anyShuffle = true;
-                }
-            }
-            if (!anyShuffle) break;
-        }
-    }
-
-    public void sortMaximum() {
-        for (int i = size - 1; i > 0; i--) {
-            int maxIndex = i;
-            for (int j = 0; j < i; j++) {
-                if (elements[j] > elements[maxIndex]) {
-                    maxIndex = j;
-                }
-            }
-            Integer tmp = elements[i];
-            elements[i] = elements[maxIndex];
-            elements[maxIndex] = tmp;
-        }
-    }
-
-    public static Integer[] qSort(Integer[] array, int start, int end) {
-        if (start >= end) {
-            return array;
-        }
-        int comparingIndex = end;
-        int comparingValue = array[end];
-        for (int i = start; i < comparingIndex; ) {
-            if (array[i] > array[comparingIndex]) {
-                Integer tmp = array[i];
-                array[i] = array[comparingIndex - 1];
-                array[comparingIndex - 1] = comparingValue;
-                array[comparingIndex] = tmp;
-                comparingIndex--;
-            } else {
-                i++;
-            }
-        }
-        qSort(array, start, comparingIndex - 1);
-        qSort(array, comparingIndex + 1, end);
-        return array;
     }
 
     /**

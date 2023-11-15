@@ -304,29 +304,7 @@ class ArrListImplTest {
         assertTrue(arrList.isEmpty());
     }
 
-    @Test
-    void sortBubble() {
-        // Подготовка вводных данных
-        setup(); //{5, -6, 0, 9, -5}
-        // Подготовка результата
-        Integer[] expectedArray = {-6, -5, 0, 5, 9};
-        // Начало теста
-        arrList.sortBubble();
-        assertArrayEquals(arrList.toArray(),expectedArray);
-    }
-
-    @Test
-    void sortMaximum() {
-        // Подготовка вводных данных
-        setup(); //{5, -6, 0, 9, -5}
-        // Подготовка результата
-        Integer[] expectedArray = {-6, -5, 0, 5, 9};
-        // Начало теста
-        arrList.sortMaximum();
-        assertArrayEquals(arrList.toArray(),expectedArray);
-    }
-
-    // Для qSort нет теста, так как она используется внутри binaryIndexOf и является приватным методом
+      // Для qSort нет теста, так как она используется внутри binaryIndexOf и является приватным методом
 //    @Test
 //    void qSort() {
 //    }
